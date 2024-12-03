@@ -31,11 +31,8 @@ pub fn day_1() {
 }
 
 fn open(filename: String) -> String {
-  let result = simplifile.read(from: filename)
-  case result {
-    Ok(value) -> value
-    Error(_) -> ""
-  }
+  let assert Ok(result) = simplifile.read(from: filename)
+  result
 }
 
 fn split_strings(list_of_strings: List(String)) {
