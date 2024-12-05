@@ -3,11 +3,11 @@ import gleam/int
 import gleam/io
 import gleam/list
 import gleam/string
-import simplifile
+import utils
 
 pub fn day_1() {
   // prep
-  let contents = open("src/data/1.txt")
+  let contents = utils.open("data/1.txt")
   let lines = string.split(contents, "\n")
   let splitted_strings = split_strings(lines)
 
@@ -28,11 +28,6 @@ pub fn day_1() {
   let dict2b = count_items(splitted_strings.1)
   io.print("day 1b: ")
   io.debug(multiply_dicts(dict1b, dict2b))
-}
-
-fn open(filename: String) -> String {
-  let assert Ok(result) = simplifile.read(from: filename)
-  result
 }
 
 fn split_strings(list_of_strings: List(String)) {
