@@ -109,12 +109,13 @@ fn get_diffs_iter(first, rest, diffs) {
 }
 
 fn dampened(l) {
-  let dampened_lists = list.index_map(l, fn(_l, i) {
-    let before = list.take(l, i)
-    let after = list.drop(l, i + 1)
-    list.append(before, after)
-  })
-  list.any(dampened_lists, fn(ll) {is_safe(ll)})
+  let dampened_lists =
+    list.index_map(l, fn(_l, i) {
+      let before = list.take(l, i)
+      let after = list.drop(l, i + 1)
+      list.append(before, after)
+    })
+  list.any(dampened_lists, fn(ll) { is_safe(ll) })
 }
 
 fn is_safe(l) {
@@ -123,5 +124,4 @@ fn is_safe(l) {
   let safe_decreasing =
     diffs == list.filter(diffs, fn(i) { -3 <= i && i <= -1 })
   safe_increasing || safe_decreasing
-
 }
