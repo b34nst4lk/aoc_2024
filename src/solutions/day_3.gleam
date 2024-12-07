@@ -33,9 +33,7 @@ fn solve_3b(inputs) {
   let assert Ok(pattern) =
     regexp.from_string("mul\\(\\d+,\\d+\\)|do\\(\\)|don't\\(\\)")
   inputs
-  |> list.map(fn(i) {
-    regexp.scan(pattern,i)
-  })
+  |> list.map(fn(i) { regexp.scan(pattern, i) })
   |> list.flatten()
   |> solve_3b_iter(0, True)
 }
@@ -49,7 +47,8 @@ fn solve_3b_iter(inputs: List(regexp.Match), acc, to_do) {
           case first.content {
             "do()" -> solve_3b_iter(rest, acc, True)
             "don't()" -> solve_3b_iter(rest, acc, False)
-            "mul" <> _ -> solve_3b_iter(rest, acc + parse_mul(first.content), True)
+            "mul" <> _ ->
+              solve_3b_iter(rest, acc + parse_mul(first.content), True)
             _ -> panic
           }
         }
