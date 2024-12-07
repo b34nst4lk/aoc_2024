@@ -44,7 +44,6 @@ fn solve_3b_iter(inputs: List(regexp.Match), acc, to_do) {
   case inputs {
     [] -> acc
     [first, ..rest] -> {
-      io.debug(#(first.content, acc))
       case to_do {
         True -> {
           case first.content {
