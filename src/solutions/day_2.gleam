@@ -6,7 +6,7 @@ import gleam/string
 import utils
 
 pub fn day_2() {
-  let input = utils.open("data/2.txt")
+  let input = utils.open("src/data/2.txt")
   let splitted_strings =
     input
     |> string.trim()

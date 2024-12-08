@@ -6,7 +6,7 @@ import gleam/string
 import utils
 
 pub fn day_3() {
-  let input = utils.open("data/3.txt")
+  let input = utils.open("src/data/3.txt")
   let inputs =
     input
     |> string.trim()
