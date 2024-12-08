@@ -7,7 +7,7 @@ import utils
 
 pub fn day_1() {
   // prep
-  let contents = utils.open("data/1.txt")
+  let contents = utils.open("src/data/1.txt")
   let lines = string.split(contents, "\n")
   let splitted_strings = split_strings(lines)
 
