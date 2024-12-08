@@ -1,6 +1,5 @@
 import gleam/dict.{type Dict}
 import gleam/io
-import gleam/list
 import gleam/set.{type Set}
 import gleam/string
 import utils
@@ -21,7 +20,7 @@ pub fn day_4() {
   // 4b
   let assert Ok(m_list) = dict.get(xmas_dict, "M")
   let search_list = create_mas_list(m_list)
-  io.debug(#("4a", count_matches(search_list, xmas_dict)))
+  io.debug(#("4b", count_matches(search_list, xmas_dict)))
 }
 
 fn create_xmas_dict(chars) {
