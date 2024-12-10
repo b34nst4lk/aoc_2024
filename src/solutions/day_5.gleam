@@ -2,7 +2,6 @@ import gleam/dict
 import gleam/int
 import gleam/io
 import gleam/list
-import gleam/order.{Eq, Gt, Lt}
 import gleam/set
 import gleam/string
 
@@ -129,17 +128,7 @@ fn fix_invalids(rules, updates) {
       dict.insert(d, key, count)
     })
     |> dict.to_list()
-    |> list.sort(fn(a: #(Int, Int), b: #(Int, Int)) {
-      case a.1 > b.1 {
-        True -> Lt
-        False -> {
-          case a.1 < b.1 {
-            True -> Gt
-            False -> Eq
-          }
-        }
-      }
-    })
+    |> list.sort(fn(a: #(Int, Int), b: #(Int, Int)) { int.compare(b.1, a.1) })
     |> list.map(fn(j) { j.0 })
   })
 }
