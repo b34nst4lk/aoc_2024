@@ -31,7 +31,7 @@ pub fn update_dimensions(board: Board, width: Int, height: Int) {
 }
 
 pub fn update_player(board: Board, player: Coords) {
-  Board(board.obstacles, player, board.direction, board.width, board.height)
+  Board(..board, player: player)
 }
 
 pub fn update_direction(board: Board, direction: Coords) {
