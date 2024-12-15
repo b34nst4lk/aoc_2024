@@ -4,6 +4,7 @@ import solutions/day_3
 import solutions/day_4
 import solutions/day_5
 import solutions/day_6
+import solutions/day_7
 
 pub fn main() {
   day_1.day_1()
@@ -12,4 +13,5 @@ pub fn main() {
   day_4.day_4()
   day_5.day_5()
   day_6.day_6()
+  day_7.day_7()
 }
