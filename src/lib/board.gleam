@@ -48,9 +48,9 @@ pub fn out_of_bounds(board: Board, moved_player: Coords) {
 }
 
 pub fn parse_input(input: String) -> #(Dict(String, Set(Coords)), Coords) {
+  let splited = string.split(input, "\n")
   let inputs =
-    input
-    |> string.split("\n")
+    splited
     |> list.reverse()
     |> list.index_fold(dict.new(), fn(d, line, y) {
       line
