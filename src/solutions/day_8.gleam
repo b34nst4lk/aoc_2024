@@ -19,21 +19,21 @@ pub fn day_8() {
   let all_antinodes = find_antinodes(input, bounds, pairwise_antinodes_calc)
   io.debug(#("8a", set.size(all_antinodes)))
 
-  let all_trailing_antinodes = find_antinodes(input, bounds, trailing_antinodes_calc)
+  let all_trailing_antinodes =
+    find_antinodes(input, bounds, trailing_antinodes_calc)
   io.debug(#("8b", set.size(all_trailing_antinodes)))
 }
 
 fn find_antinodes(input, bounds, calc_func) {
-    input
-    |> dict.map_values(fn(_, v) {
-      let result = calculate_antinodes(v, bounds, calc_func)
-      case result {
-        Ok(values) -> values
-        Error(_) -> set.new()
-      }
-    })
-    |> dict.fold(set.new(), fn(s, _, v) { set.union(s, v) })
-
+  input
+  |> dict.map_values(fn(_, v) {
+    let result = calculate_antinodes(v, bounds, calc_func)
+    case result {
+      Ok(values) -> values
+      Error(_) -> set.new()
+    }
+  })
+  |> dict.fold(set.new(), fn(s, _, v) { set.union(s, v) })
 }
 
 fn calculate_antinodes(
