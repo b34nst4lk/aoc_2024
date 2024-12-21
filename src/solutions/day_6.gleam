@@ -5,7 +5,8 @@ import gleam/set.{type Set}
 import gleam/string
 import utils
 
-import lib/board.{type Board, type Coords, Coords}
+import lib/board.{type Board}
+import lib/coords.{type Coords, Coords}
 
 pub fn day_6() {
   let input = utils.open("src/data/6.txt")
